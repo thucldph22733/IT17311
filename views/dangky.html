@@ -1,0 +1,157 @@
+<link rel="stylesheet" href="css/dangky.css">
+<main class="container">
+  <div class="row">
+    <!-- định nghĩa vị trí mà nội dung sẽ render ra -->
+    <article class="col-md-12">
+      <div class="row" style="padding:20px;">
+        <br>
+        <center>
+          <h3 style="font-weight: bolder;">{{a}}</h3>
+        </center>
+        <hr>
+        <center>
+          <h3 style="color: rgb(133, 22, 127);">Thông Tin Khách Hàng</h3>
+        </center>
+      </div>
+      <div class="center">
+        <div class="row">
+          <div class="col-4">Họ Tên</div>
+          <div class="col-4">Ngày Sinh</div>
+          <div class="col-4">Giới Tính</div>
+
+        </div>
+
+        <div class="row">
+          <div class="col-4"><input type="text" class="form-control" ng-model="inputValue.name" placeholder="Họ Tên">
+            <p style="color: red;" ng-if="check.name==true" >Bạn Chưa Nhập Tên!</p>
+          </div>
+          <div class="col-4"><input type="date" class="form-control" ng-model="inputValue.day"
+              placeholder="Ngày/Tháng/Năm">
+            <p style="color: red;" ng-if="check.day==true">Bạn Chưa Nhập Ngày Sinh!</p>
+          </div>
+          <div class="col-4"> <select class="form-select" id="gender">
+              <option value="Nam">Nam</option>
+              <option value="Nữ">Nữ</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <div class="row2">
+        <div class="row">
+          <div class="col-4">Số CCCD/Chứng minh nhân dân</div>
+          <div class="col-4">Số điện thoại khách hàng </div>
+          <div class="col-4">Email khách hàng</div>
+        </div>
+        <div class="row">
+          <div class="col-4"><input type="text" class="form-control" ng-model="inputValue.cmnd"
+              id="exampleFormControlInput1" placeholder="Số CCCD/Chứng minh nhân dân">
+            <p style="color: red;" ng-if="check.cmnd==true">Bạn Chưa Nhập Số CCCD/Chứng minh nhân dân!</p>
+            <element style="color: red;" ng-show="check.cmnd2==true">CCCD/Chứng minh nhân dân phải là số!</element>
+          </div>
+          <div class="col-4"><input type="text" class="form-control" ng-model="inputValue.sdt" id="mobile"
+              placeholder="Số điện thoại ">
+            <p style="color: red;" ng-if="check.sdt==true">Bạn Chưa Nhập Số Điện Thoại!</p>
+            <element style="color: red;" ng-show="check.sdt2==true">Số Điện Thoại sai định dạng!</element>
+          </div>
+          <div class="col-4"><input type="text" class="form-control" ng-model="inputValue.email" placeholder="Email ">
+            <p style="color: red;" ng-if="check.email==true">Bạn Chưa Nhập Email!</p>
+            <element style="color: red;" ng-show="check.email2==true">Email sai định dạng!</element>
+          </div>
+        </div>
+      </div>
+      <br>
+      <div class="row">
+        <center>
+          <h3 style="color: rgb(133, 22, 127);">Đặt Khóa Học</h3>
+        </center>
+      </div>
+
+      <div class="row">
+        <div class="col-6">Chủ Đề</div>
+        <div class="col-6"></div>
+      </div>
+
+      <div class="row">
+        <div class="col-6">
+          <select class="form-select" id="chude">
+            <option value="Tư duy lập trình và nền tảng">Tư duy lập trình và nền tảng</option>
+            <option value="Lập trình xử lý Mảng">Lập trình xử lý Mảng</option>
+            <option value="Thuật toán nền tảng">Thuật toán nền tảng</option>
+            <option value=" Lập trình hướng đối tượng">Lập trình hướng đối tượng</option>
+            <option value="Làm quen với nền tảng MySQL">Làm quen với nền tảng MySQL</option>
+            <option value="Servlet">Servlet</option>
+            <option value="Git, công cụ quản lý nhóm">Git, công cụ quản lý nhóm</option>
+            <option value="Tìm hiểu về Spring Web căn bản">Tìm hiểu về Spring Web căn bản</option>
+            <option value="Áp dụng Spring vào Dự án CRM">Áp dụng Spring vào Dự án CRM</option>
+            <option value="Spring Nâng">Spring Nâng</option>
+            <option value="Vấn đề Bảo mật">Vấn đề Bảo mật</option>
+            <option value="Triển khai dự án với Heroku">Triển khai dự án với Heroku</option>
+          </select>
+        </div>
+        <div class="col-6">
+
+        </div>
+      </div>
+
+      <div class="row1">
+        <div class="row">
+          <div class="col-6">Chọn gói học</div>
+        </div>
+        <div class="row">
+          <div class="col-6">
+            <select class="form-select" id="goi" onchange="thanhtien()">
+              <option value="3 Tháng">3 Tháng</option>
+              <option value="5 Tháng">5 Tháng</option>
+              <option value="6 Tháng">6 Tháng</option>
+              <option value="8 Tháng">8 Tháng</option>
+              <option value="9 Tháng">9 Tháng</option>
+              <option value="12 háng">12 Tháng</option>
+            </select>
+          </div>
+          <div class="col-4"><p  id="ttt" ></p></div>
+        </div>
+      </div>
+
+      <button style="margin:80px 570px 0px;width: 150px;background-color: rgb(131, 129, 233);" type="submit" class=""
+        ng-click="onSB()">ĐĂNG KÝ</button>
+      <hr>
+      <table class="table table-light table-hover">
+        <thead>
+          <tr>
+            <th scope="col">STT</th>
+            <th scope="col">Họ Tên</th>
+            <th scope="col">Ngày Sinh</th>
+            <th scope="col">Giới Tính</th>
+            <th scope="col">Số CCCD/CMND</th>
+            <th scope="col">SDT</th>
+            <th scope="col">Email</th>
+            <th scope="col">Chủ Đề</th>
+            <th scope="col">Gói học</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody ng-repeat="if in DSKhachHang2">
+          <tr  ng-click="onSua(if.id)">
+            <th scope="row">{{if.id}}</th>
+            <td>{{if.name}}</td>
+            <td>{{if.day|date:'dd/MM/yyyy'}}</td>
+            <td>{{if.gender}}</td>
+            <td>{{if.cmnd}}</td>
+            <td>{{if.sdt}}</td>
+            <td>{{if.email}}</td>
+            <td>{{if.chude}}</td>
+            <td>{{if.goi}}</td>
+            <td>
+              <button type="submit" class="btn btn-primary" ng-click="onSua(if.id)"><i class="fas fa-wrench"></i>
+              </button>
+
+              <button type="submit" class="btn btn-primary" ng-click="onXoa(if.id)"><i class="fas fa-trash-alt"></i>
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+  </div>
+  </article>
+</main>
